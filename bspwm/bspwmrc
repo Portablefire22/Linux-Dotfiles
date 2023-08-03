@@ -2,15 +2,21 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+external_monitor=$(xrandr --query | grep 'HDMI-A-0')
+if [[ $external_monitor = *connected* ]];then
+	xrandr --output DisplayPort-0 --primary --mode 2560x1440 --rate 144 --output HDMI-A-0 --mode 1920x1080 --pos 2560x360 --rate 60 
+fi
+bspc monitor DisplayPort-0 -d I II III IV V
+bspc monitor HDMI-A-0 -d VI VII VIII IX X
 
-bspc config border_width        4
+bspc config border_width        0 
 bspc config window_gap          12
 bspc conig top_padding		35
 bspc config bottm-padding 	3
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
+
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
