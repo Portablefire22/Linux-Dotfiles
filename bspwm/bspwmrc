@@ -3,11 +3,15 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 external_monitor=$(xrandr --query | grep 'HDMI-A-0')
+laptop_monitor=$(xrandr --query | grep 'eDP')
 if [[ $external_monitor = *connected* ]];then
 	xrandr --output DisplayPort-0 --primary --mode 2560x1440 --rate 144 --output HDMI-A-0 --mode 1920x1080 --pos 2560x360 --rate 60 
+	bspc monitor DisplayPort-0 -d I II III IV V
+	bspc monitor HDMI-A-0 -d VI VII VIII IX X
+elif [[ $laptop_monitor = *connected* ]];then
+	xrandr --output eDP --primary -mode 1920x1080 --rate 144
+	bspc monitor eDP -d I II III IV V VI VII VIII IX X
 fi
-bspc monitor DisplayPort-0 -d I II III IV V
-bspc monitor HDMI-A-0 -d VI VII VIII IX X
 
 bspc config border_width        0 
 bspc config window_gap          12
