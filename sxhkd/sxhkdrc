@@ -121,6 +121,9 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 
+super + e
+	dolphin
+
 # Lock the screen 
 ctrl + alt + Delete
 	i3lock -c 000000
