@@ -78,6 +78,9 @@ bindsym --no-repeat $mod+e exec nautilus
 bindsym --no-repeat $mod+space exec fuzzel
 # Fullscreen
 bindsym --no-repeat $mod+f fullscreen
+# Screenshot
+bindsym --no-repeat $mod+shift+s exec /usr/share/sway-contrib/grimshot --notify copy area
+
 
 # Workspaces
 

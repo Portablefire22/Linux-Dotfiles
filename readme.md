@@ -10,6 +10,8 @@
 - [Clipman](https://github.com/chmouel/clipman)
 - [Dunst](https://github.com/dunst-project/dunst)
 - [Nautilus](https://gitlab.gnome.org/GNOME/nautilus)
+- [Grimshot](https://archlinux.org/packages/extra/any/sway-contrib/grimshot)
+- [Grimshot (Arch)](https://archlinux.org/packages/extra/any/sway-contrib/)
 
 I am probably missing a few things
 
