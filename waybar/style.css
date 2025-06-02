@@ -1,6 +1,80 @@
+@import "/home/blakey/.cache/wal/colors-waybar.css";
+
+@define-color seperator @color2;
+
 window#waybar {
     background-color: transparent;
-    padding-top: 5px;
 }
+
+* {
+  color: @foreground;
+}
+
+#workspaces button {
+  padding: 0 0.25em 0 0.25em;
+  margin: 0.1em;
+}
+
+#workspaces button.visible {
+  background-color: @color11;
+}
+
+#workspaces button.focused {
+  background-color: @color2;
+}
+
+
+#workspaces button:hover {
+  background-color: @color5;
+}
+
+#workspaces {
+  background-color: @background;
+  border-radius: 1em;
+  margin: 0.25em 0.5em 0.25em 0.5em;
+  padding: 0.5em 0.75em 0.5em 0.75em;
+}
+
+#window {
+  background: @background;
+  margin: 0.25em 0.5em 0.25em 0.5em;
+  padding: 0.5em 0.75em 0.5em 0.75em;
+  border-radius: 1em;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+#clock, #cpu, #pulseaudio, #network, #keyboard-state label.locked {
+  margin: 0.25em 0em 0.25em 0;
+  background-color: @background;
+  padding: 0.25em 0.75em 0.25em 0.75em;
+}
+
+#clock {
+  margin: 0.25em 0.5em 0.25em 0;
+  border-radius: 0 1em 1em 0 ;
+}
+
+#cpu{
+  margin: 0.25em 0em 0.25em 0;
+  min-width: 3em;
+}
+
+#pulseaudio {
+  margin: 0.25em 0em 0.25em 0;
+  border-radius: 1em 0 0 1em;
+}
+
+#custom-separator {
+  padding: 0;
+  background-color: @background;
+  margin: 0.25em 0em 0.25em 0;
+}
+
 
 
