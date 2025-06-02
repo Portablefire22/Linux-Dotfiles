@@ -1,3 +1,8 @@
+### Variables
+
+set $mod Mod4
+set $disp1 "DP-3"
+set $disp2 "HDMI-A-1"
 
 ### Mouse
 
@@ -15,8 +20,6 @@ input * {
 
 input type:keyboard xkb_numlock enabled
 
-set $mod Mod4
-
 ### Bar ###
 
 bar {
@@ -25,8 +28,11 @@ bar {
 
 ### Display ### 
 
-output HDMI-A-1 mode 1920x1080@60Hz pos 2560 360 bg ~/Pictures/06RU005T1-full.webp stretch
-output DP-3 mode 2560x1440@144Hz pos 0 0 bg ~/Pictures/06RU005T1-full.webp stretch
+output $disp2 mode 1920x1080@60Hz pos 2560 360 bg ~/Pictures/06RU005T1-full.webp stretch
+output $disp1 mode 2560x1440@144Hz pos 0 0 bg ~/Pictures/06RU005T1-full.webp stretch
+
+workspace 1 output $disp1
+workspace 10 output $disp2
 
 ### Audio Controls ### 
 
@@ -45,9 +51,8 @@ bindsym XF86AudioStop exec playerctl stop
 exec wl-paste -t text --watch clipman store --no-persist 
 exec sov
 
-# Sway Overview 
-exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 500
-
+# Notifcations
+exec dunst
 
 ### Keybinds 
 # Open Firefox
@@ -66,3 +71,31 @@ bindsym --no-repeat $mod+l exec swaylock --clock \
 bindsym --no-repeat $mod+t exec kitty
 # File Explorer
 bindsym --no-repeat $mod+e exec nautilus
+# Launcher (Fuzzel)
+bindsym --no-repeat $mod+space exec fuzzel
+# Fullscreen
+bindsym --no-repeat $mod+f fullscreen
+
+# Workspaces
+
+bindsym --no-repeat $mod+1 workspace number 1
+bindsym --no-repeat $mod+2 workspace number 2
+bindsym --no-repeat $mod+3 workspace number 3
+bindsym --no-repeat $mod+4 workspace number 4 
+bindsym --no-repeat $mod+5 workspace number 5
+bindsym --no-repeat $mod+6 workspace number 6
+bindsym --no-repeat $mod+7 workspace number 7
+bindsym --no-repeat $mod+8 workspace number 8 
+bindsym --no-repeat $mod+9 workspace number 9
+bindsym --no-repeat $mod+0 workspace number 10
+
+bindsym --no-repeat $mod+shift+1 move container to workspace 1
+bindsym --no-repeat $mod+shift+2 move container to workspace 2
+bindsym --no-repeat $mod+shift+3 move container to workspace 3
+bindsym --no-repeat $mod+shift+4 move container to workspace 4 
+bindsym --no-repeat $mod+shift+5 move container to workspace 5
+bindsym --no-repeat $mod+shift+6 move container to workspace 6
+bindsym --no-repeat $mod+shift+7 move container to workspace 7
+bindsym --no-repeat $mod+shift+8 move container to workspace 8 
+bindsym --no-repeat $mod+shift+9 move container to workspace 9
+bindsym --no-repeat $mod+shift+0 move container to workspace 10
