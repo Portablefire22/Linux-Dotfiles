@@ -7,12 +7,14 @@ set $mod Mod4
 set $disp1 "DP-3"
 set $disp2 "HDMI-A-1"
 
+set $wallpaper "~/.config/gitDots/mima_4k.jpeg"
+
 ### Mouse
 
 # No mouse accel
 input type:pointer {
   accel_profile flat
-  pointer_accel 0
+  pointer_accel 0.25
 }
 
 ### Keyboard ### 
@@ -31,8 +33,8 @@ bar {
 
 ### Display ### 
 
-output $disp2 mode 1920x1080@60Hz pos 2560 360 bg ~/Pictures/06RU005T1-full.webp stretch
-output $disp1 mode 2560x1440@144Hz pos 0 0 bg ~/Pictures/06RU005T1-full.webp stretch
+output $disp2 mode 1920x1080@60Hz pos 2560 360 bg $wallpaper stretch
+output $disp1 mode 2560x1440@144Hz pos 0 0 bg $wallpaper stretch
 
 workspace 1 output $disp1
 workspace 10 output $disp2
@@ -79,7 +81,7 @@ bindsym --no-repeat $mod+space exec fuzzel
 # Fullscreen
 bindsym --no-repeat $mod+f fullscreen
 # Screenshot
-bindsym --no-repeat $mod+shift+s exec /usr/share/sway-contrib/grimshot --notify copy area
+bindsym --no-repeat $mod+shift+s exec wl-copy < $(/usr/share/sway-contrib/grimshot --notify save area)
 
 
 # Workspaces
